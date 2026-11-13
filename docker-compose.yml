@@ -1,0 +1,46 @@
+services:
+  web:
+    build: ./docker/php
+    container_name: pulso-web
+    ports:
+      - "8090:80"
+    volumes:
+      - ./app:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_NAME: pulso
+      DB_USER: pulso
+      DB_PASS: pulso
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.4
+    container_name: pulso-db
+    environment:
+      MYSQL_DATABASE: pulso
+      MYSQL_USER: pulso
+      MYSQL_PASSWORD: pulso
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+      - pulso-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    container_name: pulso-pma
+    ports:
+      - "8091:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+
+volumes:
+  pulso-db:

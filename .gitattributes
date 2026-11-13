@@ -1,0 +1,7 @@
+# Fins de linha: scripts e SQL sempre com LF (funcionam em Linux, Mac e no Docker)
+*.sh   text eol=lf
+*.sql  text eol=lf
+*.php  text eol=lf
+*.md   text eol=lf
+*.png  binary
+*.pdf  binary
