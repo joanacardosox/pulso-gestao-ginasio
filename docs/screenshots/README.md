@@ -1,0 +1,6 @@
+# Capturas de ecrã
+
+Coloca aqui as imagens dos ecrãs (PNG), por exemplo:
+
+- `fo-01-inicio.png`, `fo-02-planos.png`, …
+- `bo-01-login.png`, `bo-02-painel.png`, …
