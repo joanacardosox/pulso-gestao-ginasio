@@ -8,7 +8,7 @@
 
 ## Porquê este tema
 
-- Tem **quatro perfis de utilizador** com necessidades diferentes, o que dá um caso real para aplicar RBAC.
+- Tem **cinco perfis** (incluindo o Visitante, que ainda não fez login) com necessidades diferentes, o que dá um caso real para aplicar RBAC.
 - Tem uma parte **pública** (front office) e uma parte **interna** (back office) bem separadas.
 - Tem **regras de negócio** concretas: lotação de aulas, mensalidades em atraso, cancelamentos.
 - Tem um modelo de dados com relações reais (sócios, planos, aulas, inscrições, presenças).
@@ -26,7 +26,7 @@
 
 | Perfil | Quem é | Onde trabalha |
 |---|---|---|
-| **Administrador** | Gerência do ginásio | Back office (acesso total) |
+| **Gestor** | Dono ou gestor do ginásio | Back office (gestão completa, perfil bloqueado) |
 | **Rececionista** | Equipa da receção | Back office |
 | **Treinador** | Professor das aulas | Back office (só as suas aulas) |
 | **Sócio** | Cliente do ginásio | Front office (área do sócio) |
